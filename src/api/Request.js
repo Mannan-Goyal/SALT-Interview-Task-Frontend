@@ -23,6 +23,8 @@ export const signup = async (email, username, password) => {
       method: "post",
       data: { email, username, password },
     });
+    console.log("setting jwt");
+    console.log(res.data.token);
     localStorage.setItem("jwtToken", res.data.token);
     return res.data;
   } catch (err) {

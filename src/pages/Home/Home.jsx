@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 
 const fillerFunction = () => {
   localStorage.clear(); 
-  window.location.href='http://localhost:3000';
+  window.location.href='http://localhost:5000';
 }
 
 const LoggedInUser = () => {
@@ -20,7 +20,7 @@ const LoggedInUser = () => {
 const LoggedOutUser = () => {
   return <div>
      <h1>Please Sign In! </h1>
-     <a href="http://localhost:3000/login">Sign In </a>
+     <a href="http://localhost:5000/login">Sign In </a>
    </div>;
 }
 
@@ -30,7 +30,9 @@ const LoggedOutUser = () => {
 const Home = () => {
   const [data, setData] = useState();
   const [searchParams] = useSearchParams();
-  localStorage.setItem('jwtToken', searchParams.get("token"));
+  if(searchParams.has('token')){
+    localStorage.setItem('jwtToken', searchParams.get("token"));
+  }
   const getData = async () => {
     let res = await protectedData();
     setData(res);

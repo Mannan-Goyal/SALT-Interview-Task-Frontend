@@ -1,11 +1,10 @@
 import axios from "axios";
 
-
 export const API = axios.create({
-    baseURL: "http://localhost:3001",
-    responseType: "json",
-})
+  baseURL: "http://localhost:5001",
+  responseType: "json",
+});
 
-export const BASEURL = "http://localhost:3001"
+export const BASEURL = "http://localhost:5001";
 
-export default API
+export default API;
